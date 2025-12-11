@@ -1,41 +1,297 @@
-body{
-    background-color:hsl(0, 0%, 3%);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    text-align: center;
-    margin: 0; /*remove as margens padrao*/
-    padding: 0;/*remove o espaçamentopadrao*/
-    height: 100vh; /**/
-    width: 100vw;/**/
 }
 
-.cabecalho{
-    background-color: rgba(24, 24, 24, 0);
+body {
+    background-color: hsl(0, 0%, 3%);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    width: 100vw;
+}
+
+/* --- CABEÇALHO --- */
+.cabecalho {
+    background-color:  #da2b8200;
     display: flex;
-    padding: 20px;
-    justify-content: center;
-    align-items: center; 
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.cabecalho h1{
-    color:cornsilk;
+.cabecalho h1 {
+    color: cornsilk;
+    font-size: 1.8rem;
+}
+
+.cabecalho nav a {
+    color: #F0F0F0;
+    text-decoration: none;
+    margin-left: 30px;
+    transition: color 0.3s;
+}
+
+.cabecalho nav a:hover {
+    color: #da2b82;
+}
+
+/* --- CONTEÚDO 1: INTRODUÇÃO --- */
+
+.conteudo1 {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    background-color: hsl(0, 0%, 3%); 
+    color: cornsilk;
+    padding: 0;
+    width: 100%;
+}
+
+.intro-flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 100px 80px;
+    min-height: 90vh;
+    text-align: left;
+    overflow: hidden;
+}
+
+.intro-texto {
+    max-width: 45%;
+    z-index: 10;
+}
+
+.conteudo1 h3 {
+    color: #da2b82;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.conteudo1 h1 {
+    font-size: 5rem;
+    margin: 0 0 10px 0;
+}
+
+.conteudo1 .destaque {
+    font-size: 2rem;
+    color: cornsilk;
+    margin-bottom: 50px;
+    font-weight: 400;
+}
+
+/* Estilo do Botão FALE COMIGO */
+.btn-contato {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: transparent;
+    color: #da2b82;
+    border: 2px solid #da2b82;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-contato:hover {
+    background-color: #da2b82;
+    color: hsl(0, 0%, 3%);
+}
+
+/* Imagem e Círculo da Introdução */
+.intro-imagem {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 500px;
+}
+
+.intro-imagem::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-color: #da2b82;
+    border-radius: 50%;
+    z-index: 1;
+    filter: blur(5px);
+    opacity: 0.5;
+}
+
+.intro-imagem .img1 {
+    position: relative;
+    z-index: 10;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #9f1f5f;
+    transition: transform 0.5s;
+}
+
+.intro-imagem .img1:hover {
+    transform: scale(1.05);
+}
+
+.intro-imagem .img2 {
+    display: none; 
+}
+
+
+/* --- SEÇÃO: SOBRE MIM --- */
+
+.sobre-mim {
+    width: 100%;
+    background-color: hsl(0, 6%, 10%); /* Segunda cor intercalada */
+    color: cornsilk;
+    padding: 100px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px; 
+    max-width: 100%; 
+    margin: 0 auto;
+}
+
+.sobre-mim-imagem img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10%;
+    border: 3px solid #da2b82;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+}
+
+.sobre-mim-imagem img:hover {
+    transform: scale(1.05);
+}
+
+.sobre-mim-texto {
+    max-width: 600px; 
+    text-align: left; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sobre-mim-texto .titulo-sobre-mim {
+    font-size: 2.5rem;
+    color: #da2b82; 
+    margin-bottom: 20px;
     text-align: left;
 }
-.conteudo1{
-    background-color:  hsl(0, 8%, 7%);
+
+.sobre-mim-texto p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin: 0;
+}
+
+
+/* --- CONTEÚDOS 2, 3 E 4 (Gerais) --- */
+.conteudo2, .conteudo3, .conteudo4 {
     color: cornsilk;
-    }
-
-.conteudo2{
-    background-color: hsl(0, 6%, 10%);
-     color: cornsilk;
+    padding: 80px 0;
+    text-align: center;
+    width: 100%; /* Garantindo largura total */
 }
 
-.conteudo3{
-    background-color: ;
-     color: cornsilk;
+.conteudo2 h1, .conteudo3 h1, .conteudo4 h1 {
+    font-size: 3rem;
+    margin-bottom: 50px;
 }
 
-.conteudo4{
-    background-color: ;
-    
+/* --- SEÇÃO: PROJETOS (conteudo2) --- */
+.conteudo2 {
+    background-color: hsl(0, 8%, 7%); /* Terceira cor intercalada */
+}
+
+/* --- SEÇÃO: CONHECIMENTOS (conteudo3) --- */
+.conteudo3 {
+    background-color: hsl(0, 6%, 10%); /* Quarta cor intercalada */
+}
+
+/* --- SEÇÃO: CONTATO (conteudo4) --- */
+.conteudo4 {
+    background-color: hsl(0, 8%, 7%); /* Quinta cor intercalada */
+}
+
+
+/* --- CARDS WRAPPER (Comum a Projetos e Conhecimentos) --- */
+.cards-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Adiciona padding para evitar que cards toquem as bordas em telas grandes */
+}
+
+/* --- ESTILOS GERAIS DE CARDS --- */
+.card {
+    background-color: #1A1A1A;
+    border: 1px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 300px;
+    color: cornsilk;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(218, 43, 130, 0.2);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    margin-bottom: 15px;
+}
+
+.card .btn {
+    background-color: #da2b82;
+    color: cornsilk;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    text-align: center;
+}
+
+/* --- RODAPÉ --- */
+.rodape {
+    color: cornsilk;
+    padding: 50px 0;
+    background-color: #0A0A0A;
+    text-align: center;
+    width: 100%; /* Garantindo largura total */
 }
